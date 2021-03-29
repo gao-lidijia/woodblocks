@@ -5,7 +5,7 @@ public abstract class Block {
 	
 	private int x;
 	private int y;
-	public abstract void myDraw(Graphics g);
+
 	
 	public int numOfBlocks() {
 		return bob.length;
@@ -26,5 +26,17 @@ public abstract class Block {
 	
 	public int getY() {
 		return y;
+	}
+	public void myDraw(Graphics g) {
+		int myX;
+		int myY;
+		// will work for all vertical and horizontal thingies
+		
+		for (int r = 0; r < bob.length; r++) {
+			myY = getY() + bob[r][0]*30; // y = row, which is first so have the first value of the 2 parts
+			myX = getX() + bob[r][1]*30; // x = column, which is second so have the second value of the 2 parts
+			g.drawRect(myX, myY, 30, 30);
+			g.fillRect(myX, myY, 30, 30);
+		}
 	}
 }
