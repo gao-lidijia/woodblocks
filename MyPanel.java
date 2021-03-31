@@ -7,29 +7,32 @@ import javax.swing.JPanel;
 public class MyPanel extends JPanel implements ActionListener, MouseListener, MouseMotionListener{
 	
 	SingleBlock bob = new SingleBlock();
-	/*ArrayList<Pieces> piece = new ArrayList<Pieces>();
-	int xpos1 = 75;
-	int xpos2 = 175;
-	int xpos3 = 275;
-	int ypos = 350;*/
-
+	public int[][] grid;
 	
-	/*public MyPanel() {
-		for(int i = 0; i<3; i++)
-			piece.add(new Pieces());*/
+	}
+
+	public myPanel() {
+		
+		grid = new int[9][9];
+		for(int i = 0; i<9; i++)
+			for(int j = 0; j<9; j++)
+				grid[i][j]=1;
+		for(int i = 1; i<8; i++)
+			for(int j = 1; j<8; j++)
+				grid[i][j]=1;
+	
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		this.setBackground(new Color(201,233,246));
+		
+		for(int i = 0; i<7; i++)
+			for(int j = 0; j<7; j++)
+				g.drawRect(i*30+100, j*30+50, 30, 30);
 		bob.myDraw(g);
 		
-		//piece.get(0).myDraw(g, xpos1, ypos);
 		
-		
-		
-		//piece.get(1).myDraw(g, xpos2, ypos);
-		//piece.get(2).myDraw(g, xpos3, ypos);
 		
 			
 	
